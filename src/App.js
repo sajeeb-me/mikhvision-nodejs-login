@@ -8,10 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   const [user, setUser] = useState(null)
-
-  console.log(user);
 
   return (
     <div className="App">

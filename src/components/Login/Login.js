@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 
-function Login() {
+function Login({ setUser }) {
     const navigate = useNavigate()
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -18,17 +18,14 @@ function Login() {
                 },
                 body: JSON.stringify(user),
             })
-                .then(res => {
-                    // console.log(res);
-                    if (res.status === 500) {
-                        return toast.error('User not found')
-                    }
-                    return res.json()
-                })
+                .then(res => res.json())
                 .then(data => {
-                    // console.log(data);
                     if (data.success) {
+                        setUser(data.user);
+                        toast.success(data.message);
                         navigate('/');
+                    } else {
+                        toast.error(data.message);
                     }
                 })
         }
