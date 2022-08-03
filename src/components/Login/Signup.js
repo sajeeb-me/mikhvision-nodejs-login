@@ -12,7 +12,7 @@ function Signup({ setUser }) {
         const user = data;
         if (user) {
             if (data.password === data.confirmPassword) {
-                fetch('http://localhost:5000/signup', {
+                fetch('https://safe-reaches-29975.herokuapp.com/signup', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

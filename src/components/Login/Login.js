@@ -11,7 +11,7 @@ function Login({ setUser }) {
         // const email = data.email;
         const user = data;
         if (user) {
-            fetch('http://localhost:5000/login', {
+            fetch('https://safe-reaches-29975.herokuapp.com/login', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
